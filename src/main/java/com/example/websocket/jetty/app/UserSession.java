@@ -1,4 +1,4 @@
-package com.example.websocket.jetty;
+package com.example.websocket.jetty.app;
 
 public interface UserSession {
     void receiveText(String text) throws Exception;

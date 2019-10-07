@@ -1,4 +1,4 @@
-package com.example.websocket.jetty;
+package com.example.websocket.jetty.app;
 
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;

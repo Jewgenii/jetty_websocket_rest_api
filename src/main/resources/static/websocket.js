@@ -5,8 +5,12 @@ function connect() {
     
     var host = document.location.host;
     var pathname = document.location.pathname;
-    
-    ws = new WebSocket("ws://" +host  + pathname + "name/");
+
+    var uri = "ws://" +host  + pathname +"" + "messaging";
+  /*  var uri = "ws://localhost:8099/messaging";*/
+    console.log(uri);
+
+    ws = new WebSocket(uri);
 
     ws.onmessage = function(event) {
     var log = document.getElementById("log");
