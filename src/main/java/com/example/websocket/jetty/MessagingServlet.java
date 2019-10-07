@@ -7,7 +7,9 @@ public class MessagingServlet extends WebSocketServlet {
 
     @Override
     public void configure(WebSocketServletFactory factory) {
-        factory.register(MessagingAdapter.class);
+
+        /*factory.register(MessagingAdapter.class);*/
+        factory.register(MessagingAdapterAnnotated.class);
     }
 
 }
