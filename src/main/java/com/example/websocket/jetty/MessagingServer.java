@@ -1,13 +1,13 @@
 package com.example.websocket.jetty;
 
-import com.example.websocket.jetty.app.MessagingServlet;
+import com.example.websocket.jetty.app.servlet.FileUploadInChunksServlet;
+import com.example.websocket.jetty.app.servlet.FileUploadServlet;
+import com.example.websocket.jetty.app.servlet.MessagingServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.server.handler.HandlerCollection;
 import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.eclipse.jetty.servlet.ServletHolder;
 
 /**
  * The executable main class.
@@ -36,11 +36,28 @@ public class MessagingServer {
         connector.setPort(8099);
         server.addConnector(connector);
 
-        ServletContextHandler handler = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        /*ServletContextHandler handler = new ServletContextHandler(ServletContextHandler.SESSIONS);*/
+        ServletContextHandler handler = new ServletContextHandler();
         handler.setContextPath("/");
+
+        handler.addServlet(FileUploadServlet.class,"/file");
+        handler.addServlet(MessagingServlet.class,"/messaging");
+        handler.addServlet(FileUploadInChunksServlet.class,"/multipartuploadfile");
+
+
+
+/*
+        ServletContextHandler fileUploadHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        fileUploadHandler.setContextPath("/");
+        fileUploadHandler.addServlet(FileUploadServlet.class, "/receive/fileserver");*/
+
+       /* HandlerCollection handlerCollection = new HandlerCollection();
+        handlerCollection.addHandler(handler);
+        handlerCollection.addHandler(fileUploadHandler);*/
+
+
         server.setHandler(handler);
 
-        handler.addServlet(MessagingServlet.class, "/messaging");
     }
 
     public void start() throws Exception {

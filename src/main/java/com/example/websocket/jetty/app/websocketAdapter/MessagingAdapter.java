@@ -1,5 +1,7 @@
-package com.example.websocket.jetty.app;
+package com.example.websocket.jetty.app.websocketAdapter;
 ;
+import com.example.websocket.jetty.app.User;
+import com.example.websocket.jetty.app.UserSession;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.WebSocketAdapter;
 
