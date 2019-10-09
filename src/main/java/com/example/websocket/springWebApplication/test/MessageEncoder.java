@@ -1,4 +1,4 @@
-package com.example.websocket.test;
+package com.example.websocket.springWebApplication.test;
 
 import com.google.gson.Gson;
 

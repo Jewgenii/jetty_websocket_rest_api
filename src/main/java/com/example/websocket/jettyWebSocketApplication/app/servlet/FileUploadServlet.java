@@ -1,6 +1,6 @@
-package com.example.websocket.jetty.app.servlet;
+package com.example.websocket.jettyWebSocketApplication.app.servlet;
 
-import com.example.websocket.jetty.app.websocketAdapter.FileUploadAdapter;
+import com.example.websocket.jettyWebSocketApplication.app.websocketAdapter.FileUploadAdapter;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 

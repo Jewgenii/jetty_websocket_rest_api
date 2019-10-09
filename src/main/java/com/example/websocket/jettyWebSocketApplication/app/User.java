@@ -1,4 +1,4 @@
-package com.example.websocket.jetty.app;
+package com.example.websocket.jettyWebSocketApplication.app;
 
 public class User {
     public String username;

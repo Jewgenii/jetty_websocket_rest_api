@@ -23,16 +23,9 @@ function connectChatServer() {
 function sendFile() {
     var file = document.getElementById('filename').files[0];
 
-    if(file.length> 1024 * 1024 * 10){
-
-        var loadfactor  = 0;
-        var offset = 0;
-        for (var i = 0;i< file.length / loadfactor; i+=loadfactor)
-        {
-            var blob = file.slice(offset,loadfactor);
-            loadfactor  += 1024 * 1024 * 10;
-        }
-    }
+/*    if(file.length> 1024 * 1024 * 100){
+        sendInParts();
+    }*/
 
 
     ws.send('filename:' + file.name);
@@ -52,4 +45,16 @@ function sendFile() {
     reader.readAsArrayBuffer(file);
 }
 
+function sendInParts(){
 
+
+
+    var loadfactor  = 0;
+    var offset = 0;
+    for (var i = 0;i< file.length / loadfactor; i+=loadfactor)
+    {
+        var blob = file.slice(offset,loadfactor);
+        loadfactor  += 1024 * 1024 * 10;
+    }
+
+}

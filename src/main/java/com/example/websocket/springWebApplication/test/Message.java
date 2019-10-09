@@ -1,4 +1,4 @@
-package com.example.websocket.test;
+package com.example.websocket.springWebApplication.test;
 
 public class Message {
     private String from;

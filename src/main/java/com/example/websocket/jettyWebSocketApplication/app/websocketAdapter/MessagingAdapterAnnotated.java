@@ -1,4 +1,4 @@
-package com.example.websocket.jetty.app.websocketAdapter;
+package com.example.websocket.jettyWebSocketApplication.app.websocketAdapter;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.*;

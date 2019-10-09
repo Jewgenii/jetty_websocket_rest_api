@@ -1,6 +1,6 @@
-package com.example.websocket.jetty.app.servlet;
+package com.example.websocket.jettyWebSocketApplication.app.servlet;
 
-import com.example.websocket.jetty.app.websocketAdapter.MultipartUploadFileAdapter;
+import com.example.websocket.jettyWebSocketApplication.app.websocketAdapter.MultipartUploadFileAdapter;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 
@@ -10,7 +10,7 @@ public class FileUploadInChunksServlet  extends WebSocketServlet {
     public void configure(WebSocketServletFactory factory) {
 
         factory.register(MultipartUploadFileAdapter.class);
-
+       // factory.getPolicy().setIdleTimeout(Integer.MAX_VALUE);
     }
 
 }

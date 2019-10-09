@@ -1,20 +1,16 @@
-package com.example.websocket.jetty.app.websocketAdapter;
+package com.example.websocket.jettyWebSocketApplication.app.websocketAdapter;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.*;
 
 import java.io.*;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 /*
 *  if signature of any annotated method doesnt match error will raise.
 * */
-@WebSocket(maxBinaryMessageSize = 1024*1024*1024,maxIdleTime = 120_000)
+@WebSocket(maxBinaryMessageSize = 1024*1024*1024, maxIdleTime = 120_000)
 public class FileUploadAdapter {
 
     static File uploadedFile = null;
@@ -61,9 +57,11 @@ public class FileUploadAdapter {
         System.out.println("Binary Data");
 
         try {
+
             byte[] buffer = new byte[1024];
             int read = 0;
             int counter = 0;
+
         try{
 
             while((read = stream.read(buffer,0,buffer.length))>0){
